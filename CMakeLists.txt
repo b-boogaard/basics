@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 3.13)
 project (basics C)
 
 set (CMAKE_C_STANDARD 11)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
 include (GNUInstallDirs)
 
@@ -35,7 +36,7 @@ endif (DOXYGEN_FOUND)
 ## Unit testing.
 set (ENABLE_TESTS 1 CACHE BOOL "Enable unit tests.")
 if (ENABLE_TESTS)
-  find_package (CMOCKA)
+  find_package (CMocka)
 
   if (CMOCKA_FOUND)
     message (STATUS "CMocka found, tests are enabled.")
